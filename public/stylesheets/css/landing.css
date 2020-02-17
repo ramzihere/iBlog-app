@@ -1,0 +1,108 @@
+body{
+    background: #000;
+}
+.header{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    margin-top: 150px;
+}
+.header h1{
+    color: #ec4851;
+    margin-bottom: 20px;
+}
+.header h1 > span{
+    color: #fff;
+}
+.header a{
+    color: #fff;
+    background: rgb(236, 75, 16);
+    font-size: 20px;
+    padding: 10px 30px;
+    font-weight: 500;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+    margin: 0 65px;
+    box-sizing: border-box;
+    letter-spacing: 2px;
+}
+.header a:hover{
+    text-decoration: none;
+    background: rgb(194, 60, 12);
+}
+.header-slider{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+}
+.header-slider li{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    z-index: 0;
+    opacity: 0;
+    animation: imageAnimation 50s linear infinite;
+}
+.header-slider li:nth-child(1){
+    background-image: url("/images/img-1.jpg");
+}
+.header-slider li:nth-child(2){
+    background-image: url("/images/img-2.jpg");
+    animation-delay: 10s;
+}
+.header-slider li:nth-child(3){
+    background-image: url("/images/img-3.jpg");
+    animation-delay: 20s;
+}
+.header-slider li:nth-child(4){
+    background-image: url("/images/img-4.jpg");
+    animation-delay: 30s;
+}
+.header-slider li:nth-child(5){
+    background-image: url("/images/img-5.jpg");
+    animation-delay: 40s;
+}
+@keyframes imageAnimation{
+    0%{
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+    10%{
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    20%{
+        opacity: 1;
+    }
+    30%{
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .header{
+        margin: 0;
+        margin-top: 150px;
+    }
+    .header h1{
+        font-weight: 300;
+        font-size: 20px;
+    }
+    .header a{
+        margin: 0;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,47 @@
+<%- include("../partials/header") -%>
+<div class="container topmr">
+    <div class="card bg-light">
+        <div class="card-body">
+            <h3 class="card-title heading"><%= post.title %></h3>
+            <img class="img-fluid w-100" src="<%= post.image %>" alt="">
+            <p class="card-text"><%= post.content %></p>
+            <% if(!currentUser.equals(post.user.id)){ %>
+            <p><span class="float-right">Posted By <span class="username"><%= post.user.username %></span></span><br><span class="float-right"><em><%= post.created.toDateString()%></em></span></p>
+            <% } %>
+            <% if(currentUser && post.user.id.equals(currentUser._id)){ %>
+            <form action="/blogs/<%= post._id %>?_method=delete" method="POST">
+                <button class="btn btn-outline-danger float-right my-0 mx-1">Delete</button>
+            </form>
+            <a class="btn btn-outline-warning float-right" href="/blogs/<%= post._id %>/edit">Edit</a>
+            <% } %>  
+        </div>
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="row"><div class="col-12">
+                    <p><a  class="btn btn-outline-info float-right" href="/blogs/<%= post._id %>/comments/new">Comment</a></p>
+                </div></div>
+        <% post.comments.forEach(function(comment){ %>
+        <div class="row mx-0">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 px-0">
+                <p class="lead">
+                    <span class="username">
+                        <%= comment.user.username %></span>
+                    <br>
+                    <%= comment.text %>
+                </p>
+                <% if(currentUser && comment.user.id.equals(currentUser._id)){ %>
+                <div class="mb-2">
+                    <a class="btn btn-sm btn-outline-warning" href="/blogs/<%= post._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                    <form class="d-inline" action="/blogs/<%= post._id %>/comments/<%= comment._id %>?_method=delete" method="POST">
+                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+    </div>
+    </div>
+</div>
+<%- include("../partials/footer") -%>

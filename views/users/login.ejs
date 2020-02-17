@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iBlog</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/css/main.css">
+</head>
+<body>
+    <div class="login-page header" id="particles-js">
+        <div class="sub-header">
+            <div class="card">
+                <h1>Login</h1>
+                <div class="card-body">
+                    <form action="/login" method="POST" class="custom-form">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">Login</button>
+                        </div>
+                        <p class="divider-text"><span class="bg-light">OR</span></p>
+                        <p class="text-and-btn">Don't Have a Account? <a class="btn btn-success btn-sm" href="/register">Sign Up</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/particlesJs/particles.min.js"></script>
+    <script src="/particlesJs/app.js"></script>
+</body>
+</html>

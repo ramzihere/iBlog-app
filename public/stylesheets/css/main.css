@@ -1,0 +1,146 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto Mono', monospace;
+}
+.navbar .navbar-brand{
+    font-size: 30px;  
+}
+.navbar-light .navbar-nav .nav-link{
+    color: crimson;
+    font-size: 25px;
+}
+.navbar-nav hr{
+    display: none;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    color: rgb(247, 101, 130);
+}
+.header{
+    width: 100vw;
+    height: 100vh;
+}
+.sub-header{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.sign-up-page{
+    background: #e96443;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #904e95, #e96443); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.sub-header .card{
+    padding: 30px;
+    min-width: 300px;
+}
+.sign-up-page .card h1{
+    text-align: center;
+    font-weight: 400;
+    font-size: 45px;
+    color: darkgreen;
+    margin: 0;
+    padding: 20px;
+    padding-top: 0;
+}
+.login-page{
+    background: #200122;
+    background: -webkit-linear-gradient(to left, #6f0000, #200122);  
+    background: linear-gradient(to left, #6f0000, #200122); 
+}
+.login-page .card h1{
+    text-align: center;
+    margin: 0;
+    margin-right: 20px;
+    color: #f8076f;
+    padding: 20px;
+    padding-top: 0;
+}
+.custom-form .form-group input{
+    padding: 20px 10px;
+    font-size: 18px;
+}
+.custom-form .form-group button{
+    font-size: 20px;
+}
+.custom-form .text-and-btn{
+    font-size: 18px;
+}
+.divider-text{
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span{
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+}
+.divider-text::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+.topmr{
+    margin-top: 20px;
+}
+.new-comment-form{
+    margin: 0 auto;
+    width: 50%;
+}
+.new-post-form{
+    width: 50%; 
+    margin: 50px auto;
+}
+.navbar-brand span{
+    color: rgb(230, 76, 20);
+    font-weight: 900;
+}
+.heading{
+    color: #1e4666;
+}
+.heading:hover{
+    color: #20537c;
+    text-decoration: none;
+}
+.username{
+    color: rgb(230, 76, 20);
+    font-weight: bold;
+}
+.element{
+    color: #fff;
+    font-size: 30px;
+}
+.typed-cursor{
+    font-size: 28px;
+    color: #fff;
+}
+
+@media screen and (max-width: 568px){
+    .new-comment-form{
+        width: 100%;
+    }
+    .new-post-form{
+        margin-top: 10px;
+        width: 100%;
+    }
+    .navbar-nav hr{
+        display: block;
+        border: 1px solid rgb(230, 76, 20);
+        width: 100%;
+    }
+    .element{
+        font-size: 20px;
+    }
+    .typed-cursor{
+        font-size: 18px;
+    }
+}

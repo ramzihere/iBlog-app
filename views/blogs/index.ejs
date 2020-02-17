@@ -1,0 +1,56 @@
+<%- include("../partials/header") -%>
+   <% posts.forEach(function(post){ %>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                    <div class="card-body">
+                        <div class="card-title"><h3><a class="heading" href="/blogs/<%= post._id%>"><%= post.title %></a></h3></div>
+                        <div class="card p-0">
+                            <div class="card-body p-0">
+                                <div class="img-thumbnail img-fluid p-0 border-0">
+                                    <img class="card-img-top" src="<%= post.image %>" alt="">
+                                    <div class="capation-full p-3">
+                                        <p>
+                                            <%= post.content.substring(0, 200) %>... 
+                                            <a class="btn btn-primary btn-sm" href="/blogs/<%= post._id %>">
+                                                Read
+                                            </a>
+                                        </p>
+                                        <p>
+                                            <strong>Posted by <span class="username"><%= post.user.username %></span></strong>
+                                            <span class="float-right"><em><%= post.created.toDateString() %></em></span>
+                                        </p>
+                                    </div>
+                                    <div class="card bg-light border-0">
+                                        <div class="card-body">
+                                            <p>
+                                                <a class="btn btn-sm btn-outline-info" href="/blogs/<%= post._id %>/comments/new">Comment</a>
+                                            </p>
+                                            <p> 
+                                                <% var counter = 0; %>
+                                               <% post.comments.forEach(function(comment){ %> 
+                                                <% counter++; %> 
+                                                <% if(counter === 1){ %>
+                                                     <p><strong class="username"><%= comment.user.username %></strong> <br> <%= comment.text %> <span class="float-right">10 days ago</span></p>
+                                                     <% if(currentUser && comment.user.id.equals(currentUser._id)){ %>
+                                                     <a class="btn btn-sm btn-outline-warning" href="/blogs/<%= post._id%>/comments/<%= comment._id%>/edit">Edit</a>
+                                                     <form class="d-inline" action="/blogs/<%= post._id %>/comments/<%= comment._id %>?_method=delete" method="POST">
+                                                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                    </form>
+                                                    <% } %>
+                                                    <p class="mt-1 mt-md-0"><a class="btn btn-success float-right" href="/blogs/<%= post._id %>/comments">View All Comments</a></p>
+                                                    <% } %>
+                                                <% }) %>
+                                            </p>    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <% }) %>
+<%- include("../partials/footer") -%>

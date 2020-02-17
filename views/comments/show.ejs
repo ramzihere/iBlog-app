@@ -1,0 +1,32 @@
+<%- include("../partials/header") -%>
+<div class="container topmr">
+    <h3>Post: <span class="heading"><%= post.title %></span></h3>
+    <div class="card bg-light">
+        <div class="card-body">
+            <% post.comments.forEach(function(comment){ %>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="lead">
+                        <span class="username"><%= comment.user.username %></span>
+                        <br>
+                        <%= comment.text %>
+                    </p>
+                    <% if(currentUser && comment.user.id.equals(currentUser._id)){ %>
+                    <div class="mb-2">
+                    <a class="btn btn-sm btn-outline-warning" href="/blogs/<%= post._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                    <form class="d-inline" action="/blogs/<%= post._id %>/comments/<%= comment._id %>?_method=delete" method="POST">
+                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% }); %>
+            <p>
+                <a class="btn btn-sm btn-primary" href="/blogs">Go Back!</a>
+                <a class="btn btn-sm btn-outline-info" href="/blogs/<%= post._id%>/comments/new">Comment</a> 
+            </p>
+        </div>
+    </div>
+</div>
+<%- include("../partials/footer") -%>
